@@ -1,20 +1,40 @@
 package garden_planner.gui;
 
+import garden_planner.model.GardenPlanner;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+
 public class GuiMain extends Application {
+
+    private GardenPlanner planner;
+
+    public void GuiMain(){
+        planner = new GardenPlanner();
+        planner.createBasicDesign();
+        }
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         // Parent root = FXMLLoader.load(getClass().getResource("garden_gui.fxml"));
-        Button root = new Button("TODO: design garden planner GUI");
+        //Button root = new Button("TODO: design garden planner GUI");
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color:#007700;");
+        for(garden_planner.model.Rectangle bed : planner.getBeds()) {
+            Rectangle r = new Rectangle(100, 200);
+            r.setLayoutX(bed.getLeft() * 100);
+            r.setLayoutY(100.0);
+            root.getChildren().add(r);
+        }
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
