@@ -15,28 +15,29 @@ public class GuiMain extends Application {
 
     private GardenPlanner planner;
 
-    public void GuiMain(){
+    public GuiMain() {
         planner = new GardenPlanner();
         planner.createBasicDesign();
-        }
+    }
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         // Parent root = FXMLLoader.load(getClass().getResource("garden_gui.fxml"));
         //Button root = new Button("TODO: design garden planner GUI");
         Pane root = new Pane();
         root.setStyle("-fx-background-color:#007700;");
-        for(garden_planner.model.Rectangle bed : planner.getBeds()) {
-            Rectangle r = new Rectangle(100, 200);
-            r.setLayoutX(bed.getLeft() * 100);
+        for (garden_planner.model.Rectangle bed : planner.getBeds()) {
+            Rectangle r = new Rectangle(100 , 200);
+            r.setLayoutX(bed.getLeft() * 70);
             r.setLayoutY(100.0);
             root.getChildren().add(r);
         }
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root , 800 , 600));
         primaryStage.show();
     }
+
 
 
     public static void main(String[] args) {
