@@ -70,8 +70,10 @@ public class Rectangle {
 	 * Get the area of this shape.
 	 *
 	 * @return the total internal area of the shape.
+	 * @param v
+	 * @param v1
 	 */
-	public double getArea() {
+	public double getArea(double v , double v1) {
 		return width * height;
 	}
 
@@ -79,8 +81,10 @@ public class Rectangle {
 	 * Get the perimeter of this shape.
 	 *
 	 * @return the total length of the edges of the shape.
+	 * @param v
+	 * @param v1
 	 */
-	public double getPerimeter() {
+	public double getPerimeter(double v , double v1) {
 		return 2 * (width + height);
 	}
 

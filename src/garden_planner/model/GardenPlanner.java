@@ -174,8 +174,8 @@ public class GardenPlanner {
         totalWallLength = 0.0;
         totalGardenArea = 0.0;
         for (Rectangle bed : this.beds) {
-            totalGardenArea += bed.getArea();
-            totalWallLength += bed.getPerimeter();
+            totalGardenArea += bed.getArea(3.0 , 4.0);
+            totalWallLength += bed.getPerimeter(6.0 , 12.0);
         }
     }
 
