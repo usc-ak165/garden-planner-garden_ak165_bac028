@@ -1,7 +1,5 @@
 package garden_planner.model;
 
-import java.awt.*;
-
 /**
  * Represents a rectangular shape garden.
  *
