@@ -3,8 +3,10 @@ package garden_planner.gui;
 import garden_planner.model.GardenPlanner;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 public class GuiMain extends Application {
@@ -36,11 +38,13 @@ public class GuiMain extends Application {
             double w = bed.getWidth();
             double h = bed.getHeight();
             Rectangle r = new Rectangle(w*100, h*100);
+            Image im = new Image("https://previews.123rf.com/images/alliedcomputergraphics/alliedcomputergraphics1206/alliedcomputergraphics120600884/14063553-flowers-seamless-texture-tile.jpg ");
             r.setFill(Color.MAROON);
             r.setStroke(Color.BLACK);
             r.setStrokeWidth(5);
             r.setLayoutX(x*100);
             r.setLayoutY(y*100);
+            r.setFill(new ImagePattern(im));
             root.getChildren().add(r);
         }
         primaryStage.setTitle("The Awesome Garden");
