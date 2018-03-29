@@ -3,12 +3,17 @@ package garden_planner.gui;
 import garden_planner.model.GardenPlanner;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.shape.Circle;
+;
+
 public class GuiMain extends Application {
 
     private GardenPlanner planner;
@@ -32,20 +37,46 @@ public class GuiMain extends Application {
 
         root.setStyle("-fx-background-color:#008000;");
 
+
+
+
         for (garden_planner.model.Rectangle bed : planner.getBeds()) {
             double x = bed.getLeft();
             double y = bed.getTop();
             double w = bed.getWidth();
             double h = bed.getHeight();
+
+            //Creating a text field and making it a title for the garden planner.
+            TextField text = new TextField("Overlook of the garden");
+            text.setFont(Font.font("SanSerif", 30));
+            Font SanSerif = Font.font("Phosphate",30);
+            text.setFont(SanSerif);
+            text.setTranslateY(10);
+            text.setTranslateX((215));
+
+            //Creating a rectangle bed
             Rectangle r = new Rectangle(w*100, h*100);
-            Image im = new Image("https://previews.123rf.com/images/alliedcomputergraphics/alliedcomputergraphics1206/alliedcomputergraphics120600884/14063553-flowers-seamless-texture-tile.jpg ");
+            Image im = new Image("http://images.all-free-download.com/images/graphicthumb/flower_pattern_6819485.jpg");
             r.setFill(Color.MAROON);
             r.setStroke(Color.BLACK);
-            r.setStrokeWidth(5);
+            r.setStrokeWidth(4);
             r.setLayoutX(x*100);
             r.setLayoutY(y*100);
             r.setFill(new ImagePattern(im));
             root.getChildren().add(r);
+            root.getChildren().add(text);
+
+            // Creates a circle bed
+            Circle c = new Circle(130,100,100);
+            Image im2 = new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdU7OglxEJPnYpbskdd6-0j-_PtGnE2ZY4uR28ukhJFQB3uUeH");
+            c.setFill(Color.MAROON);
+            c.setStroke(Color.BLACK);
+            c.setStrokeWidth(4);
+            c.setLayoutX(x*135);
+            c.setLayoutY(y*350);
+            c.setFill(new ImagePattern(im2));
+            root.getChildren().add(c);
+
         }
         primaryStage.setTitle("The Awesome Garden");
         primaryStage.setScene(new Scene(root , 800 , 600));
