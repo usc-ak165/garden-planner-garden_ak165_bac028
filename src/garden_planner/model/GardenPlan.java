@@ -1,14 +1,10 @@
-package garden_planner.gui;
+package garden_planner.model;
 
-public class Circle {
-    private double left = 0.0;
-    private double top = 0.0;
-    private double width = 1.0;
-    private double height = 1.0;
-
-
-    public Circle() {
-    }
+public class GardenPlan {
+    protected double left = 0.0;
+    protected double top = 0.0;
+    protected double width = 1.0;
+    protected double height = 1.0;
 
     /**
      * Position of left edge of this shape.
@@ -48,10 +44,6 @@ public class Circle {
         return width;
     }
 
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
     /**
      * Total height of this shape.
      *
@@ -59,10 +51,6 @@ public class Circle {
      */
     public double getHeight() {
         return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
     }
 
     /**
@@ -85,10 +73,5 @@ public class Circle {
      */
     public double getPerimeter(double v , double v1) {
         return 2 * (width + height);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Rectangle %.2f %.2f %.2f %.2f" , left , top , width , height);
     }
 }

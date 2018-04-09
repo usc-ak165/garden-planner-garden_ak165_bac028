@@ -3,15 +3,17 @@ package garden_planner.gui;
 import garden_planner.model.GardenPlanner;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.shape.Circle;
+
 ;
 
 public class GuiMain extends Application {
@@ -30,21 +32,30 @@ public class GuiMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Parent root = FXMLLoader.load(getClass().getResource("garden_gui.fxml"));
-        //Button root = new Button("TODO: design garden planner GUI");
 
 
         Pane root = new Pane();
+
 
         root.setStyle("-fx-background-color:#008000;");
 
 
 
-
+        // For loop for assigning x, y, w, h to GUI positions.
         for (garden_planner.model.Rectangle bed : planner.getBeds()) {
             double x = bed.getLeft();
             double y = bed.getTop();
             double w = bed.getWidth();
             double h = bed.getHeight();
+
+            Button btnShape = new Button();
+            btnShape.setText("Change Shape");
+            btnShape.setLayoutX(x*100);
+            btnShape.setLayoutY(y*310);
+            btnShape.setOnAction((ActionEvent)->{
+                System.out.println(btnShape.getText());
+            });
+            root.getChildren().add(btnShape);
 
             //Creating a text field and making it a title for the garden planner.
             TextField text = new TextField("Overlook of the garden");
@@ -66,16 +77,19 @@ public class GuiMain extends Application {
             root.getChildren().add(r);
             root.getChildren().add(text);
 
+
             // Creates a circle bed
             Circle c = new Circle(130,100,100);
             Image im2 = new Image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdU7OglxEJPnYpbskdd6-0j-_PtGnE2ZY4uR28ukhJFQB3uUeH");
             c.setFill(Color.MAROON);
             c.setStroke(Color.BLACK);
             c.setStrokeWidth(4);
-            c.setLayoutX(x*135);
+            c.setLayoutX(x*136);
             c.setLayoutY(y*350);
             c.setFill(new ImagePattern(im2));
             root.getChildren().add(c);
+
+
 
         }
         primaryStage.setTitle("The Awesome Garden");
