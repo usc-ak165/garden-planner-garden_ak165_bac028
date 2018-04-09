@@ -42,7 +42,7 @@ public class GuiMain extends Application {
 
 
         // For loop for assigning x, y, w, h to GUI positions.
-        for (garden_planner.model.Rectangle bed : planner.getBeds()) {
+        for (garden_planner.model.GardenBed bed : planner.getBeds()) {
             double x = bed.getLeft();
             double y = bed.getTop();
             double w = bed.getWidth();
@@ -53,12 +53,13 @@ public class GuiMain extends Application {
             btnShape.setLayoutX(x*100);
             btnShape.setLayoutY(y*310);
             btnShape.setOnAction((ActionEvent)->{
+                btnShape.setText("Yes");
                 System.out.println(btnShape.getText());
             });
             root.getChildren().add(btnShape);
 
             //Creating a text field and making it a title for the garden planner.
-            TextField text = new TextField("Overlook of the garden");
+            TextField text = new TextField("Overlook of the Garden");
             text.setFont(Font.font("SanSerif", 30));
             Font SanSerif = Font.font("Phosphate",30);
             text.setFont(SanSerif);
